@@ -1,0 +1,25 @@
+table {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    min-width: 500px;
+}
+
+th.mat-header-cell{
+    text-align: left;
+    max-width: 300px;
+}
+
+td.highlight {
+    background-color: whitesmoke !important;
+}
+
+#footer {
+    position:fixed;
+    left:0px;
+    bottom:0px;
+    height:30px;
+    width:100%;
+    background:#999;
+ }
+ 
