@@ -11,6 +11,7 @@ import {StorageServiceModule} from 'ngx-webstorage-service'
 import { AppRoutingModule, routingComponent } from './app-routing.module';
 import { PostsComponent } from './posts/posts.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import {DataService} from './data.service'
 
 @NgModule({
   imports: [
@@ -19,7 +20,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     AppRoutingModule,
     FormsModule, // <-- import the FormsModule before binding with [(ngModel)]
     HttpClientModule,
-    AgGridModule.withComponents([])
+    AgGridModule.withComponents([DataService])
   ],
   declarations: [AppComponent, PostsComponent, SidebarComponent, routingComponent],
   bootstrap: [AppComponent]
