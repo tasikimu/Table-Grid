@@ -1,0 +1,138 @@
+@import "~ag-grid-community/dist/styles/ag-grid.css";
+@import "~ag-grid-community/dist/styles/ag-theme-balham.css";
+
+.test-grid {
+    height: 1px;
+    min-height: 1px;
+    flex-grow: 1;
+}
+
+.test-container {
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 100px;
+    margin-top: 15px;
+}
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 20px;
+    width: 100%;
+    color: #111;
+    text-align: center;
+  }
+
+// .test-header {
+//     padding: 50px;
+//     font-family: Verdana, Geneva, Tahoma, sans-serif;
+//     font-size: 13px;
+// }
+
+.test-header label {
+    margin-right: 10px;
+}
+
+.test-header input {
+    position: relative;
+    top: 2px;
+}
+
+.sidenav {
+    height: 100%; /* Full-height: remove this if you want "auto" height */
+    width: 100px; /* Set the width of the sidebar */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: #111; /* Black */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 20px;
+  }
+  
+  /* The navigation menu links */
+  .sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+  }
+  
+  /* When you mouse over the navigation links, change their color */
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+  
+  /* Style page content */
+  .main {
+    margin-left: 160px; /* Same as the width of the sidebar */
+    padding: 0px 10px;
+  }
+  
+  /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  } 
+
+// nav a.active {
+//     color: #039be5;
+// }
+// nav a:visited, a:link {
+//     color: #607D8B;
+// }
+// nav a:hover {
+//     color: #039be5;
+//     background-color: #CFD8DC;
+// }
+
+body {
+    margin: 0%;
+    background: #f2f2f2;
+    font-family: 'Montserrat', sans-serif;
+    height: 100vh;
+}
+
+// #container {
+//     display: grid;
+//     grid-template-columns: 70px auto;
+//     height: 100%;
+
+//     #content{
+//         padding: 30px 50px;
+
+//         ul {
+//             list-style-type: none;
+//             margin: 0;
+//             padding: 0;
+
+//             li {
+//                 background: #fff;
+//                 border-radius: 8px;
+//                 padding: 20px;
+//                 margin-bottom: 8px
+
+//                 a{
+//                     font-size: 1.5em;
+//                     text-decoration: none;
+//                     font-weight: bold;
+//                     color: #00a8ff;
+//                 }
+
+//                 ul{
+//                     margin-top: 20px;
+
+//                     li {
+//                         padding: 0%;
+
+//                         a {
+//                             font-size: 1em;
+//                             font-weight: 300;
+//                         }
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }
