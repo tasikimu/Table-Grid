@@ -32,12 +32,12 @@ export class AppComponent{
       onfilterChanged: this.onfilterChanged	
     }
     this.columnDefs = [colDefFirstname, colDefLastname, 
-      colDefGender, colDefUsername, colDefCity, colDefEmail];
+      colDefGender, colDefUsername, colDefCity, colDefEmail, colDefZipCode];
     this.defaultColDef = {
       enableRowGroup: true,
       enablePivot: true,
       enableValue: true,
-      width: 100,
+//       width: 100,
       sortable: true,
       resizable: true,
       filter: true,
@@ -69,47 +69,60 @@ export class AppComponent{
     };
   }
 
-  onBtApply(reverse) {
-    var cols = [];
-    if (getBooleanValue("#firstname")) {
-      cols.push(colDefFirstname);
-    }
-    if (getBooleanValue("#lastname")) {
-      cols.push(colDefLastname);
-    }
-    if (getBooleanValue("#gender")) {
-      cols.push(colDefGender);
-    }
-    if (getBooleanValue("#username")) {
-      cols.push(colDefUsername);
-    }
-    if (getBooleanValue("#city")) {
-      cols.push(colDefCity);
-    }
-    if (getBooleanValue("#email")) {
-      cols.push(colDefEmail);
-    }
-    if (reverse) {
-      cols = cols.reverse();
-    }
-    this.gridApi.setColumnDefs(cols); 
-  }
+//   onBtApply(reverse) {
+//     var cols = [];
+//     if (getBooleanValue("#firstname")) {
+//       cols.push(colDefFirstname);
+//     }
+//     if (getBooleanValue("#lastname")) {
+//       cols.push(colDefLastname);
+//     }
+//     if (getBooleanValue("#gender")) {
+//       cols.push(colDefGender);
+//     }
+//     if (getBooleanValue("#username")) {
+//       cols.push(colDefUsername);
+//     }
+//     if (getBooleanValue("#city")) {
+//       cols.push(colDefCity);
+//     }
+//     if (getBooleanValue("#email")) {
+//       cols.push(colDefEmail);
+//     }
+//   if (getBooleanValue("#zipcode")) {
+//     cols.push(colDefZipCode);
+//   }
+//     if (reverse) {
+//       cols = cols.reverse();
+//     }
+//     this.gridApi.setColumnDefs(cols); 
+//   }
 
+  //Informs the grid that a filter hass changed.
   onfilterChanged	(params) {
     var columnState = JSON.stringify(params.columnApi.getColumnState());
     localStorage.setItem('myColumnState', columnState);
   }
+  
+  //When a column is being resized
+  onColumnResized(params) {
+    var columnState = JSON.stringify(params.columnApi.getColumnState());
+    localstorage.setItem('myColumnState', columnState);
+  }
 
+  //A column, or group of columns, was hidden / shown
   onColumnVisible(params) {
     var columnState = JSON.stringify(params.columnApi.getColumnState());
     localStorage.setItem('myColumnState', columnState);
   }
 
+  //When a column is being moved from one spot to another
   onColumnMoved(params) {
     var columnState = JSON.stringify(params.columnApi.getColumnState());
     localStorage.setItem('myColumnState', columnState);
   }
 
+  //Use the grid's API to fix the column to size
   onGridReady(params) {
     var columnState = JSON.parse(localStorage.getItem('myColumnState'));
     if (columnState) {
@@ -117,8 +130,8 @@ export class AppComponent{
       this.gridApi = params.api;
       this.gridColumnApi = params.columnApi;
     }
-
-    this.http.get("https://api.myjson.com/bins/j052g").subscribe(data => {
+    //this.rowData = DataService;
+    this.http.get("https://api.myjson.com/bins/1fj1m4").subscribe(data => {
         this.rowData = data;
       });
   }  
@@ -147,7 +160,20 @@ var colDefCity = {
 var colDefEmail = {
   headerName: "Email",
   field: "email"
+};
+var colDefZipCode = {
+  headerName: "ZipCode",
+  field: "zipcode"
 }
+
+// window.addEventListener('online', () => this.changestate());
+
+// window.onload = function() {
+//   var container = document.getElementById('container');
+//   container.addEventListener('contextmenu', function() {
+//     console.log('Hello World...');
+//   })
+// }
 
 function getBooleanValue(cssSelector) {
   return document.querySelector(cssSelector).checked === true;
